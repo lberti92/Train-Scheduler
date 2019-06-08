@@ -1,3 +1,9 @@
+body {  
+    background-image: url("../images/DU_LOGO.jpg");
+
+    background-repeat: no-repeat;
+}
+
 #train-table th,
 td {
     display: inline-block;
