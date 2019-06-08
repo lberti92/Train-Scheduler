@@ -1,7 +1,11 @@
-body {  
-    background-image: url("../images/DU_LOGO.jpg");
+.container {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
-    background-repeat: no-repeat;
+    
+.jumbotron {  
+    background-color: crimson; 
+    color: gold; 
 }
 
 #train-table th,
