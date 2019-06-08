@@ -1,7 +1,6 @@
 .container {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-
     
 .jumbotron {  
     background-color: crimson; 
@@ -17,4 +16,9 @@ td {
 .card-header{
     background-color: crimson;
     color:gold;
+}
+
+.card-body {
+    border: crimson;
+
 }

@@ -37,7 +37,7 @@ $("#add-train-btn").on("click", function (event) {
   var tMinutesTillTrain = freq - tRemainder;
   // console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
-  var nextArrival = moment().add(tMinutesTillTrain, "minutes").format("hh:mm");
+  var nextArrival = moment().add(tMinutesTillTrain, "minutes").format("HH:mm");
   // console.log("nextArrival" + nextArrival);
 
   database.ref().push({
@@ -52,7 +52,7 @@ $("#add-train-btn").on("click", function (event) {
 
   $("#train-name-input").val("");
   $("#dest-input").val("");
-  $("start-input").val("");
+  $("#start-input").val("");
   $("#freq-input").val("");
 });
   database.ref().on("child_added", function (snapshot) {
