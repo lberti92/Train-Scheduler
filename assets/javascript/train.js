@@ -17,12 +17,12 @@ $("#add-train-btn").on("click", function (event) {
 
   var trainName = $("#train-name-input").val().trim();
   var dest = $("#dest-input").val().trim();
-  var startTime = moment($("#start-input").val().trim(), "HH:mm").format();
+  var startTime = moment($("#start-input").val().trim(), "h:mm").format();
   var freq = $("#freq-input").val().trim();
 
   // console.log("start " + startTime);
 
-  var startTimeConverted = moment(startTime, "HH:mm").subtract(1, "years");
+  var startTimeConverted = moment(startTime, "h:mm a").subtract(1, "years");
   // console.log(startTimeConverted);
 
   // var currentTime = moment();
@@ -37,7 +37,7 @@ $("#add-train-btn").on("click", function (event) {
   var tMinutesTillTrain = freq - tRemainder;
   // console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
-  var nextArrival = moment().add(tMinutesTillTrain, "minutes").format("HH:mm");
+  var nextArrival = moment().add(tMinutesTillTrain, "minutes").format("h:mm a");
   // console.log("nextArrival" + nextArrival);
 
   database.ref().push({
