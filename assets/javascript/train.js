@@ -17,12 +17,12 @@ $("#add-train-btn").on("click", function (event) {
 
   var trainName = $("#train-name-input").val().trim();
   var dest = $("#dest-input").val().trim();
-  var startTime = moment($("#start-input").val().trim(), "h:mm").format();
+  var startTime = moment($("#start-input").val().trim(), "HH:mm").format();
   var freq = $("#freq-input").val().trim();
 
   // console.log("start " + startTime);
 
-  var startTimeConverted = moment(startTime, "h:mm a").subtract(1, "years");
+  var startTimeConverted = moment(startTime, "hh:mm A").subtract(1, "years");
   // console.log(startTimeConverted);
 
   // var currentTime = moment();
@@ -37,7 +37,7 @@ $("#add-train-btn").on("click", function (event) {
   var tMinutesTillTrain = freq - tRemainder;
   // console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
-  var nextArrival = moment().add(tMinutesTillTrain, "minutes").format("h:mm a");
+  var nextArrival = moment().add(tMinutesTillTrain, "minutes").format("hh:mm A");
   // console.log("nextArrival" + nextArrival);
 
   database.ref().push({
@@ -66,5 +66,13 @@ $("#add-train-btn").on("click", function (event) {
 
     row.append(nameTD, destTD, freqTD, nextArrivalTD, minutesAwayTD);
     $("tbody").append(row);
-  
-  });
+
+  }, function(errorObject) {
+
+    // In case of error this will print the error
+    console.log("The read failed: " + errorObject.code);
+
+    });
+    
+
+
