@@ -82,6 +82,6 @@ function updateTrain() {
   function oneMinute() {
     $("tbody").html("");
     updateTrain();
-    console.log("Reset Time and Minutes");
+    // console.log("Reset Time and Minutes");
   }
 }

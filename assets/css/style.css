@@ -22,3 +22,6 @@ td {
     border: crimson;
 
 }
+::placeholder {
+    color: lightcoral;
+}
