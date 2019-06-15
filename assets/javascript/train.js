@@ -12,6 +12,8 @@ firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 
+updateTrain();
+
 $("#add-train-btn").on("click", function (event) {
   event.preventDefault();
 
@@ -33,6 +35,9 @@ $("#add-train-btn").on("click", function (event) {
   $("#start-input").val("");
   $("#freq-input").val("");
 })
+
+function updateTrain() {
+
   database.ref().on("child_added", function (snapshot) {
 
     var row = $("<tr>");
@@ -49,13 +54,13 @@ $("#add-train-btn").on("click", function (event) {
 
     var diffTime = moment().diff(moment(startTimeConverted), "minutes");
     // console.log("DIFFERENCE IN TIME: " + diffTime);
-  
+
     var tRemainder = diffTime % freqTD;
     // console.log("Remainder: " + tRemainder);
 
     var tMinutesTillTrain = freqTD - tRemainder;
     // console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
-  
+
     var nextArrival = moment().add(tMinutesTillTrain, "minutes").format("hh:mm A");
     // console.log("nextArrival: " + nextArrival);
 
@@ -67,9 +72,16 @@ $("#add-train-btn").on("click", function (event) {
 
     $("tbody").append(row);
 
-  }, function(errorObject) {
-
+  }, function (errorObject) {
     // In case of error this will print the error
     console.log("The read failed: " + errorObject.code);
+  })
 
-    });
+  setTimeout(oneMinute, 1000 * 60);
+
+  function oneMinute() {
+    $("tbody").html("");
+    updateTrain();
+    console.log("Reset Time and Minutes");
+  }
+}
