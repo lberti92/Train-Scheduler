@@ -9,7 +9,8 @@ It uses the CURRENT TIME of when the Input was submitted.
 
 All the data is stored in Firebase and pulled to populate the Brower when the User opens the application.
 
-At this time the Next Arrival and Minutes Away DOES NOT update the database and brower with REALTIME information.
+RealTime information:
+The Next Arrival and Minutes Away DOES update the database and brower with REALTIME information based on the Current Time.
 
 Technologies Used:
 FireBase
